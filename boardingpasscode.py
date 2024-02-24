@@ -329,6 +329,46 @@ class Seat: #This line defines a Seat class
             print(f"Booking for seat {self.seat_number} cancelled.") #This line prints a message indicating that the booking for the seat has been canceled
         else:
             print(f"Seat {self.seat_number} is not booked.") #If the seat is already available (i.e., availability is True), this line prints a message indicating that the seat is not booked.
+class Aircraft: #This line defines an Aircraft class
+    def __init__(self, airline, aircraft_type, number_of_seats, total_weight_capacity, pilot): ##This line uses a constructor that initialzies the attributes with the values passed as attributes
+        self.airline = airline #This line sets the airline attribute of the Aircraft object to the value passed as the airline parameter
+        self.aircraft_type = aircraft_type #This line sets the aircraft_type attribute of the Aircraft object to the value passed as the aircraft_type parameter
+        self.number_of_seats = number_of_seats #This line sets the number_of_seats attribute of the Aircraft object to the value passed as the number_of_seats parameter
+        self.total_weight_capacity = total_weight_capacity #This line sets the total_weight_capacity attribute of the Aircraft object to the value passed as the total_weight_capacity parameter
+        self.pilot = pilot  #This line sets the pilot attribute of the Aircraft object to the value passed as the pilot parameter
+#setter method to all attributes
+    def set_airline(self, airline):
+        self.airline = airline
+
+    def set_aircraft_type(self, aircraft_type):
+        self.aircraft_type = aircraft_type
+
+    def set_number_of_seats(self, number_of_seats):
+        self.number_of_seats = number_of_seats
+
+    def set_total_weight_capacity(self, total_weight_capacity):
+        self.total_weight_capacity = total_weight_capacity
+
+    def set_pilot(self, pilot):
+        self.pilot = pilot
+#s]getter method to all attributes
+    def get_airline(self):
+        return self.airline
+
+    def get_aircraft_type(self):
+        return self.aircraft_type
+
+    def get_number_of_seats(self):
+        return self.number_of_seats
+
+    def get_total_weight_capacity(self):
+        return self.total_weight_capacity
+
+    def get_pilot(self):
+        return self.pilot
+#This additional function displays all the information of the aircraft 
+    def display_aircraft_info(self):
+        return f"Aircraft Type: {self.aircraft_type}, Airline: {self.airline}, Seats: {self.number_of_seats}, Weight Capacity: {self.total_weight_capacity}, Pilot: {self.pilot}"
 
 from datetime import datetime
 
@@ -410,3 +450,19 @@ if __name__ == "__main__":
     print('The seat is avaiable:', seat1.is_available())
     print('The ticket price:', seat1.getprice())
     print('The assigned passenger:', seat1.getassigned_passenger())
+# Test cases for Aircraft class
+if __name__ == "__main__":
+    # Create an instance of Aircraft
+    aircraft1 = Aircraft("Emirates", "Boeing 777", 300, 150000, "Hamad AlMarri")
+
+    # Display aircraft information
+    print("Aircraft Information:")
+    print(aircraft1.display_aircraft_info())
+
+    # Update airline and pilot
+    aircraft1.set_airline("Etihad")
+    aircraft1.set_pilot("Khalid AlAli")
+
+    # Display updated information
+    print("\nUpdated Aircraft Information:")
+    print(aircraft1.display_aircraft_info())
